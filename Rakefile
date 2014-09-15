@@ -39,7 +39,7 @@ spec = Gem::Specification.new do |s|
 
   # If you want to depend on other gems, add them here, along with any
   # relevant versions
-  s.add_dependency("httparty", "~> 0.7.4")
+  s.add_dependency("httparty", "~> 0.13.1")
 
   # If your tests use any gems, include them here
   s.add_development_dependency("shoulda")
