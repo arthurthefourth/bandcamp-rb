@@ -1,7 +1,7 @@
 require "rubygems"
-require 'test/unit'
+require 'minitest/autorun'
 require 'shoulda'
-require 'webmock/test_unit'
+require 'webmock/minitest'
 
 require File.dirname(__FILE__) + '/../lib/bandcamp.rb'
 
@@ -14,7 +14,7 @@ def stub_json_request(url, json_file)
   )
 end
 
-class BandTest < Test::Unit::TestCase
+class BandTest < Minitest::Test
   
   context "A band" do
     setup do      
@@ -73,7 +73,7 @@ class BandTest < Test::Unit::TestCase
     end
     
     should "have a release date" do
-      assert_equal("Tue Sep 16 01:00:00 +0100 2008", @album.release_date.to_s)
+      assert_equal("2008-09-16 00:00:00 UTC", @album.release_date.getgm.to_s)
     end
     
     should "have a description (about)" do
