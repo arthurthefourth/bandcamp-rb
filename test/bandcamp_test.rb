@@ -118,7 +118,7 @@ class BandTest < Minitest::Test
   
   context "A track" do
     setup do
-      stub_json_request("http://api.bandcamp.com/api/track/1/info?track_id=1269403107&key=SECRET_API_KEY", "track")
+      stub_json_request("http://api.bandcamp.com/api/track/3/info?track_id=1269403107&key=SECRET_API_KEY", "track")
       Bandcamp::Base.api_key = 'SECRET_API_KEY'
       
       @track = Bandcamp::Track.load("1269403107")
@@ -174,6 +174,10 @@ class BandTest < Minitest::Test
       assert_equal(3463798201, @track.band_id)
       stub_json_request("http://api.bandcamp.com/api/band/3/info?band_id=3463798201&key=SECRET_API_KEY", "band")      
       assert_equal("Amanda Palmer", @track.band.name)
+    end
+
+    should "have a release date" do
+      assert_equal('', @track.release_date)
     end
   end
    
