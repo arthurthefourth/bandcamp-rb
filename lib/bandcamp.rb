@@ -95,7 +95,7 @@ module Bandcamp
   
   class Track < Base
     attr_reader :lyrics, :downloadable, :duration, :about, :album_id, :credits,
-                :streaming_url, :number, :title, :url, :track_id, :band_id, :release_date
+                :streaming_url, :number, :title, :url, :track_id, :band_id, :release_date, :small_art_url, :large_art_url
     
     def initialize(track)
       @lyrics        = track['lyrics']
@@ -111,6 +111,8 @@ module Bandcamp
       @track_id      = track['track_id']
       @band_id       = track['band_id']
       @release_date  = track['release_date']
+      @small_art_url = track['small_art_url']
+      @large_art_url = track['large_art_url']
     end
     
     def album

@@ -176,8 +176,13 @@ class BandTest < Minitest::Test
       assert_equal("Amanda Palmer", @track.band.name)
     end
 
-    should "have a release date" do
-      assert_equal('', @track.release_date)
+    should "have a release date method" do
+      assert_equal(nil, @track.release_date)
+    end
+
+    should "have art_url methods" do
+      assert_equal(nil, @track.small_art_url)
+      assert_equal(nil, @track.large_art_url)
     end
   end
    
